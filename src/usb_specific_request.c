@@ -231,9 +231,6 @@ Bool usb_user_read_request(U8 type, U8 request)
 //!
 void usb_user_endpoint_init(U8 conf_nb)
 {
-  //uint8_t int_state = Get_interrupt_state();
-  //Disable_interrupt();
-  /****** Atomic *******/
   usb_configure_endpoint(INT_EP,        \
                          TYPE_INTERRUPT,\
                          DIRECTION_IN,  \
@@ -278,8 +275,6 @@ void usb_user_endpoint_init(U8 conf_nb)
 
   Usb_select_endpoint(MOUSE_EP);
   Usb_enable_in_ready_interrupt();
-
-  //if(int_state != 0) Enable_interrupt();
 }
 
 

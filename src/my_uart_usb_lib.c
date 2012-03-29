@@ -69,14 +69,10 @@ void my_uart_usb_read_from_endpoint(void){
 }
 
 void my_usb_ep2_int_action(void){
-  //uint8_t int_state = Get_interrupt_state();
-  //Disable_interrupt();
-
   Usb_select_endpoint(RX_EP);
   if(Is_usb_receive_out() &&  Is_usb_receive_out_interrupt_enabled()){
     my_uart_usb_read_from_endpoint();
   }
-  //if(int_state != 0) Enable_interrupt();
 }
 // this function should be continuously called
 void my_uart_usb_send_to_endpoint(void){
@@ -133,14 +129,10 @@ void my_uart_usb_send_to_endpoint(void){
 //   usb_request_break_generation = FALSE;
 }
 void my_usb_ep1_int_action(void){
- // uint8_t int_state = Get_interrupt_state();
-  //Disable_interrupt();
-
   Usb_select_endpoint(TX_EP);
   if(Is_usb_in_ready() && Is_usb_in_ready_interrupt_enabled()){
     my_uart_usb_send_to_endpoint();
   }
-//  if(int_state != 0) Enable_interrupt();
 }
 
 int my_uart_usb_putchar(int data_to_send){
