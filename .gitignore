@@ -1,2 +1,5 @@
 default
 tags
+*.elf
+*.hex
+*.map
