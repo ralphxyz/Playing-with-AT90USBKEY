@@ -360,6 +360,8 @@ __interrupt void usb_general_interrupt()
    U8 i;
    U8 save_pipe_nb;
    #endif
+  interrupt_state_t interrupt_state;
+  my_interrupt_load_state(&interrupt_state);
 
 // ---------- DEVICE events management -----------------------------------
 #if (USB_DEVICE_FEATURE == ENABLED)
@@ -640,6 +642,7 @@ __interrupt void usb_general_interrupt()
       Host_hwup_action();             // Map custom action
    }
 #endif // End HOST FEATURE MODE
+  my_interrupt_load_state(&interrupt_state);
 }
 
 

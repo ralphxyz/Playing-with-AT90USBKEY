@@ -112,15 +112,15 @@ void device_mouse_task_by_int(void){
 }
 
 void my_usb_ep4_int_action(void){
-  uint8_t int_state = Get_interrupt_state();
-  Disable_interrupt();
+  //uint8_t int_state = Get_interrupt_state();
+  //Disable_interrupt();
 
   Usb_select_endpoint(MOUSE_EP);
   if(Is_usb_in_ready() && Is_usb_in_ready_interrupt_enabled()){
     device_mouse_task_by_int();
   }
 
-  if(int_state != 0) Enable_interrupt();
+  //if(int_state != 0) Enable_interrupt();
 }
 
 static bit is_device_mouse_event(void){

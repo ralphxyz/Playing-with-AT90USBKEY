@@ -231,8 +231,8 @@ Bool usb_user_read_request(U8 type, U8 request)
 //!
 void usb_user_endpoint_init(U8 conf_nb)
 {
-  uint8_t int_state = Get_interrupt_state();
-  Disable_interrupt();
+  //uint8_t int_state = Get_interrupt_state();
+  //Disable_interrupt();
   /****** Atomic *******/
   usb_configure_endpoint(INT_EP,        \
                          TYPE_INTERRUPT,\
@@ -279,7 +279,7 @@ void usb_user_endpoint_init(U8 conf_nb)
   Usb_select_endpoint(MOUSE_EP);
   Usb_enable_in_ready_interrupt();
 
-  if(int_state != 0) Enable_interrupt();
+  //if(int_state != 0) Enable_interrupt();
 }
 
 
@@ -647,8 +647,8 @@ void usb_hid_set_report_feature(void){
 ISR(USB_COM_vect){
   uint8_t mask;
   uint8_t ep;
-  //interrupt_state_t interrupt_state;
-  //my_interrupt_load_state(&interrupt_state);
+  interrupt_state_t interrupt_state;
+  my_interrupt_load_state(&interrupt_state);
   mask = Usb_interrupt_flags();
   ep = NB_ENDPOINTS;
   // wow no idea why doing a countdown works, but some comment says that
@@ -668,5 +668,5 @@ ISR(USB_COM_vect){
       }
     }
   }
-  //my_interrupt_load_state(&interrupt_state);
+  my_interrupt_load_state(&interrupt_state);
 }
