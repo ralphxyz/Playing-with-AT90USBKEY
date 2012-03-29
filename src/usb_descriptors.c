@@ -94,9 +94,10 @@ const code S_usb_user_configuration_descriptor usb_conf_desc = {
      + sizeof(S_usb_interface_descriptor)
      + sizeof(S_usb_endpoint_descriptor)
      + sizeof(S_usb_endpoint_descriptor)
-     + sizeof(S_usb_interface_descriptor)
-     + sizeof(S_usb_hid_descriptor)
-     + sizeof(S_usb_endpoint_descriptor))
+     //+ sizeof(S_usb_interface_descriptor)
+     //+ sizeof(S_usb_hid_descriptor)
+     //+ sizeof(S_usb_endpoint_descriptor)
+     )
  , NB_INTERFACE
  , CONF_NB
  , CONF_INDEX
@@ -151,6 +152,7 @@ const code S_usb_user_configuration_descriptor usb_conf_desc = {
  , Usb_write_word_enum_struc(EP_SIZE_2)
  , EP_INTERVAL_2
  }
+#if 0
  ,
  { sizeof(S_usb_interface_descriptor)
  , DESCRIPTOR_INTERFACE
@@ -179,6 +181,7 @@ const code S_usb_user_configuration_descriptor usb_conf_desc = {
  , Usb_write_word_enum_struc(EP_SIZE_4)
  , EP_INTERVAL_4
  }
+#endif
 };
 
 code const S_usb_hid_report_descriptor_mouse usb_hid_report_descriptor_mouse = {{

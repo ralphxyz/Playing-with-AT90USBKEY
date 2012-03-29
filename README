@@ -5,3 +5,18 @@ commands to my computer/PS3.
 
 This is definitly not the cheapest way to connect a PS2 controller to a 
 computer but I had the board lying arround and wanted to play with it.
+
+
+To compile you will need the avr gcc libraries.
+If you are on Fedora (16 at the time of writing) you should be able to get 
+them from one of the basic repositories as well as the dfu-programmer
+package, I remember I had some trouble when installing a dummy program
+with the dfu-programmer because of some permissions in linux. Google is
+your friend. The specific board I was using actually burned the security
+fuse so everytime you program the board you need to fully erase it.
+
+To build the program
+make 
+
+To program the device
+make program

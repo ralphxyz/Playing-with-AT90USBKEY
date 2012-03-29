@@ -356,14 +356,11 @@ volatile uint8_t usb_isr_in = 0;
 __interrupt void usb_general_interrupt()
 #endif
 {
-  //interrupt_state_t interrupt_state;
-  //my_interrupt_load_state(&interrupt_state);
-
-   //Led2_toggle();
    #if (USB_HOST_PIPE_INTERRUPT_TRANSFER == ENABLE)
    U8 i;
    U8 save_pipe_nb;
    #endif
+
 // ---------- DEVICE events management -----------------------------------
 #if (USB_DEVICE_FEATURE == ENABLED)
 
@@ -643,7 +640,6 @@ __interrupt void usb_general_interrupt()
       Host_hwup_action();             // Map custom action
    }
 #endif // End HOST FEATURE MODE
-  //my_interrupt_load_state(&interrupt_state);
 }
 
 

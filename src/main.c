@@ -117,11 +117,9 @@ int main(void)
   // wait only 10 clicks before registering
   buttons_init(10);
 
-  device_mouse_task_init();
-
-  //usb_task_init();
   my_usb_task_init();
   my_uart_usb_init();
+  device_mouse_task_init();
 
   scheduler_add_task(buttons_read_task);
   scheduler_add_task(main_task);

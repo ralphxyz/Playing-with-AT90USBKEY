@@ -79,8 +79,8 @@
 #define NB_CONFIGURATION      1
 
                // CDC CONFIGURATION
-//#define NB_INTERFACE       2           // Number of interfaces
-#define NB_INTERFACE       3           // Number of interfaces
+#define NB_INTERFACE       2           // Number of interfaces
+//#define NB_INTERFACE       3           // Number of interfaces
 #define CONF_NB            1
 #define CONF_INDEX         0
 #define CONF_ATTRIBUTES    USB_CONFIG_BUSPOWERED
@@ -330,9 +330,11 @@ typedef struct
    S_usb_interface_descriptor     ifc1;
    S_usb_endpoint_descriptor      ep1;
    S_usb_endpoint_descriptor      ep2;
+   /*
    S_usb_interface_descriptor     ifc_mouse;
    S_usb_hid_descriptor           hid_mouse;
    S_usb_endpoint_descriptor      ep_hid_mouse;
+   */
 } S_usb_user_configuration_descriptor;
 
 /*______ U S B   G A M E P A D   D E S C R I P T O R _________________________*/
