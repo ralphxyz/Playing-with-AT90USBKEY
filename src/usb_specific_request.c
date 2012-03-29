@@ -255,7 +255,6 @@ void usb_user_endpoint_init(U8 conf_nb)
                          TWO_BANKS,     \
                          NYET_ENABLED);
 
-#if 0
   usb_configure_endpoint(MOUSE_EP,      \
                          TYPE_INTERRUPT,\
                          DIRECTION_IN,  \
@@ -263,11 +262,11 @@ void usb_user_endpoint_init(U8 conf_nb)
                          ONE_BANK,      \
                          NYET_ENABLED);
 
-#endif
+
   Usb_reset_endpoint(INT_EP);
   Usb_reset_endpoint(TX_EP);
   Usb_reset_endpoint(RX_EP);
-  //Usb_reset_endpoint(MOUSE_EP);
+  Usb_reset_endpoint(MOUSE_EP);
 
   Usb_select_endpoint(RX_EP);
   Usb_enable_receive_out_interrupt();
@@ -277,8 +276,8 @@ void usb_user_endpoint_init(U8 conf_nb)
   Usb_select_endpoint(TX_EP);
   Usb_enable_in_ready_interrupt();
 
-//  Usb_select_endpoint(MOUSE_EP);
- // Usb_enable_in_ready_interrupt();
+  Usb_select_endpoint(MOUSE_EP);
+  Usb_enable_in_ready_interrupt();
 
   if(int_state != 0) Enable_interrupt();
 }
@@ -561,8 +560,8 @@ void hid_get_hid_descriptor(void){
 
   if(wInterface == INTERFACE_NB_MOUSE)
   {
-//    data_to_transfer = sizeof(usb_conf_desc.ep_hid_mouse);
-    //pbuffer = &(usb_conf_desc.ep_hid_mouse.bLength);
+    data_to_transfer = sizeof(usb_conf_desc.ep_hid_mouse);
+    pbuffer = &(usb_conf_desc.ep_hid_mouse.bLength);
   }
   // Else some other HID device you have
   hid_report_transfer(data_to_transfer, pbuffer);
