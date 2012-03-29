@@ -1,0 +1,7 @@
+This is a my own private project. I'm simply trying to use to use the 
+AT90USBKEY that has a AT90USB1287 microcontroller to act as various usb 
+devices. My ultimate gold is make to send Playstation2 controller
+commands to my computer/PS3.
+
+This is definitly not the cheapest way to connect a PS2 controller to a 
+computer but I had the board lying arround and wanted to play with it.
